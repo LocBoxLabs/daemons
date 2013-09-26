@@ -39,7 +39,7 @@ module Daemons
       if @force_kill_waittime.blank? || @force_kill_waittime == 0
         @force_kill_waittime = DEFAULT_FORCE_KILL_WAITTIME
       end
-      puts "---------- @force_kill_waittime: #{@force_kill_waittime}"
+      puts "---------- Daemons: @force_kill_waittime: #{@force_kill_waittime}"
 
       unless @pid = pid
         if @options[:no_pidfiles]
