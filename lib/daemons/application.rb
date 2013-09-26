@@ -404,7 +404,7 @@ module Daemons
 
       if not no_wait
         if @force_kill_waittime > 0
-          puts "#{self.group.app_name}: trying to stop process with pid #{pid}..."
+          puts "#{self.group.app_name}: #{Time.now}: trying to stop process with pid #{pid}..."
           STDOUT.flush
 
           begin
@@ -414,7 +414,7 @@ module Daemons
               end
             }
           rescue Timeout::Error
-            puts "#{self.group.app_name}: process with pid #{pid} won't stop, we forcefully kill it..."
+            puts "#{self.group.app_name}: #{Time.now}: process with pid #{pid} won't stop, we forcefully kill it..."
             STDOUT.flush
 
             begin
@@ -429,7 +429,7 @@ module Daemons
                 end
               }
             rescue Timeout::Error
-              puts "#{self.group.app_name}: unable to forcefully kill process with pid #{pid}."
+              puts "#{self.group.app_name}: #{Time.now}: unable to forcefully kill process with pid #{pid}."
               STDOUT.flush
             end
           end
@@ -444,7 +444,7 @@ module Daemons
         # didn't clean it up.
         begin; @pid.cleanup; rescue ::Exception; end
 
-        puts "#{self.group.app_name}: process with pid #{pid} successfully stopped."
+        puts "#{self.group.app_name}: #{Time.now}: process with pid #{pid} successfully stopped."
         STDOUT.flush
       end
 
