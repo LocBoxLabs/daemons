@@ -16,7 +16,7 @@ module Daemons
         return true
       rescue Errno::ESRCH
         return false
-      rescue ::Exception   # for example on EPERM (process exists but does not belong to us)
+      rescue ::Exception => e # for example on EPERM (process exists but does not belong to us)
         puts "---------- rescue ::Exception: #{e.message}"
         if e.message =~ /execution expired/
           raise e
