@@ -5,7 +5,7 @@ require 'daemons/daemonize'
 
 require 'timeout'
 
-DEFAULT_FORCE_KILL_WAITTIME = 1.hour
+DEFAULT_FORCE_KILL_WAITTIME = 3600 # second
 
 module Daemons
 
